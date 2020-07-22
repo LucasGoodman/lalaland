@@ -1,0 +1,4 @@
+src/assets/**/*.js
+dist/**/*.js
+public/**/*.js
+src/components/common/icon_font/index.js
