@@ -1,11 +1,13 @@
-<!--左侧菜单-->
+<!--菜单 - 菜单组-->
 <template>
-    <div class="left-menu"></div>
+    <div class="menu-section">
+        <slot name="title"></slot>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'LeftMenu'
+    name: 'MenuSection'
     // components: {},
     // directives: {},
     // filters: {},
@@ -23,7 +25,10 @@ export default {
 };
 </script>
 
-<!--<style lang="less"
+<style lang="less"
        scoped>
-
-</style>-->
+.menu-section {
+    box-sizing: border-box;
+    border-bottom: 1px solid #f2f2f2;
+}
+</style>
