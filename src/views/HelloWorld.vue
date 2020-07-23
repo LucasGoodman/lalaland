@@ -2,8 +2,17 @@
     <div class="hello">
         <!--<img src="local-resource://C:\Users\Lucas\Desktop\sizetest.jpg"
              alt="">-->
-        <a-button type="primary">
-            Primary
+        <a-button type="primary"
+                  @click="write">
+            写入
+        </a-button>
+        <a-button type="primary"
+                  @click="read">
+            读取
+        </a-button>
+        <a-button type="primary"
+                  @click="del">
+            删除
         </a-button>
     </div>
 </template>
@@ -14,6 +23,18 @@ export default {
     props: {
         // eslint-disable-next-line vue/require-default-prop
         msg: String
+    },
+    methods: {
+        write() {
+            this.$store.set('unicorn', '🦄');
+            console.log(this.$store.get('unicorn'));
+        },
+        read() {
+            console.log(this.$store.get('unicorn'));
+        },
+        del() {
+            this.$store.delete('unicorn');
+        }
     }
 };
 </script>

@@ -1,26 +1,34 @@
 <!--默认布局-->
 <template>
     <div class="default-layout">
+        <!--主界面-->
         <div class="main-wrapper">
+            <!--左侧菜单-->
             <div class="menu-wrapper">
             </div>
             <div class="content-wrapper">
+                <!--顶部导航-->
                 <div class="nav-wrapper">
                 </div>
+                <!--内容区域-->
                 <div class="router-wrapper">
                     <router-view></router-view>
                 </div>
             </div>
         </div>
-        <div class="player-wrapper">
-        </div>
+        <!--播放模块-->
+        <the-player></the-player>
     </div>
 </template>
 
 <script>
+import ThePlayer from './player/ThePlayer';
+
 export default {
-    name: 'DefaultLayout'
-    // components: {},
+    name: 'DefaultLayout',
+    components: {
+        ThePlayer
+    }
     // directives: {},
     // filters: {},
     // model: {},

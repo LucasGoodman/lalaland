@@ -7,6 +7,14 @@ import 'ant-design-vue/dist/antd.css';
 
 Vue.config.productionTip = false;
 Vue.use(plugins);
+
+/**
+ *  挂载electron-store存储实例
+ *  Homepage：https://github.com/sindresorhus/electron-store
+ * */
+const Store = require('electron-store');
+Vue.prototype.$store = new Store();
+
 new Vue({
     router,
     render: h => h(App)
