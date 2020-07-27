@@ -26,7 +26,9 @@
         <div class="current-info-wrapper">
             <!--封面-->
             <div class="cover">
-                <img src="local-resource://D:\工作文档\测试图片\t01da5bd44928dcfc6c.jpg"
+                <!--<img src="local-resource://D:\工作文档\测试图片\t01da5bd44928dcfc6c.jpg"
+                     alt="">-->
+                <img src="../../assets/img/cover.jpg"
                      alt="">
             </div>
             <div class="info-wrapper">

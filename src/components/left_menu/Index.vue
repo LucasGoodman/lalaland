@@ -1,6 +1,6 @@
 <!--左侧菜单-->
 <template>
-    <div class="left-menu"
+    <div class="menu-wrapper"
          :class="{ fold: menuFold }">
         <template v-for="(menuData,key) in menuList">
             <menu-section :key="key"
@@ -82,7 +82,7 @@ export default {
 
 <style lang="less"
        scoped>
-.left-menu {
+.menu-wrapper {
     width: 210px;
     overflow: hidden;
     transition: all 0.2s;

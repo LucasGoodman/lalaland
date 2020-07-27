@@ -4,13 +4,10 @@
         <!--主界面-->
         <div class="main-wrapper">
             <!--左侧菜单-->
-            <div class="menu-wrapper">
-                <the-menu></the-menu>
-            </div>
+            <the-menu></the-menu>
             <div class="content-wrapper">
                 <!--顶部导航-->
-                <div class="nav-wrapper">
-                </div>
+                <the-nav></the-nav>
                 <!--内容区域-->
                 <div class="router-wrapper">
                     <router-view></router-view>
@@ -25,12 +22,14 @@
 <script>
 import TheMenu from './left_menu/Index';
 import ThePlayer from './player/ThePlayer';
+import TheNav from './nav/TheNav';
 
 export default {
     name: 'DefaultLayout',
     components: {
         TheMenu,
-        ThePlayer
+        ThePlayer,
+        TheNav
     }
     // directives: {},
     // filters: {},
