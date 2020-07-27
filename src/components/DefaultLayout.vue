@@ -62,7 +62,6 @@ export default {
         display: flex;
 
         .menu-wrapper {
-            width: 210px;
             height: 100%;
             background: #ffffff;
             box-sizing: border-box;

@@ -2,19 +2,21 @@
 <template>
     <div class="menu-section"
          :class="{ fold: menuFold }">
-        <div v-if="menuData.title"
+        <div v-if="menuData.title && !menuFold"
              class="section-title">
             {{menuData.title}}
         </div>
         <div class="section-content">
             <div v-for="(menu,index) in menuData.menus"
                  :key="index"
+                 :title="menu.name"
                  class="menu-item menu-btn"
                  @click="handleMenuClick(menu)">
-                <div class="icon">
+                <div class="icon"
+                     :title="menu.name">
                     <a-icon :type="menu.type" />
                 </div>
-                <div v-if="menuFold"
+                <div v-if="!menuFold"
                      class="name">
                     {{menu.name}}
                 </div>
@@ -24,7 +26,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
 
 export default {
     name: 'MenuSection',
@@ -39,17 +41,14 @@ export default {
                 title: '',
                 menus: []
             })
+        },
+        menuFold: {
+            type: Boolean,
+            default: false
         }
     },
-    data() {
-        return {
-            // 菜单展开
-            // menuFold: false
-        };
-    },
-    computed: {
-        ...mapState(['menuFold'])
-    },
+    // data() {},
+    // computed: {},
     // watch: {},
     // mounted() {},
     // created() {},
@@ -60,7 +59,7 @@ export default {
         handleMenuClick(menuData) {
             let { name } = menuData;
             if (name === '菜单列表') {
-                // this.menuFold = !this.menuFold;
+                this.$emit('update:menuFold', !this.menuFold);
             }
         }
     }
@@ -72,18 +71,27 @@ export default {
 @import "../../assets/css/buttons";
 
 .menu-section {
+    width: 210px;
     box-sizing: border-box;
     border-bottom: 1px solid #f2f2f2;
-    padding: 19px 20px 20px 20px;
-    width: 100%;
+    padding: 20px;
     text-align: left;
+    transition: all 0.2s;
 
     &:last-child {
         border: none;
     }
 
+    &.fold {
+        padding: 10px;
+    }
+
+    &:first-child.fold {
+        padding: 20px 10px;
+    }
+
     .section-title {
-        padding-left: 10px;
+        padding-left: 5px;
         font-size: 12px;
         color: #bbbbbb;
         margin-bottom: 15px;
@@ -93,7 +101,7 @@ export default {
         .menu-item {
             cursor: pointer;
             line-height: 30px;
-            padding: 0 20px 0 10px;
+            padding-right: 20px;
         }
 
         .icon, .name {
@@ -101,8 +109,10 @@ export default {
         }
 
         .icon {
+            text-align: center;
             font-size: 16px;
-            margin-right: 16px;
+            margin-right: 10px;
+            width: 30px;
         }
     }
 }

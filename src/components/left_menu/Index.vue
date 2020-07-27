@@ -1,8 +1,10 @@
 <!--左侧菜单-->
 <template>
-    <div class="left-menu">
+    <div class="left-menu"
+         :class="{ fold: menuFold }">
         <template v-for="(menuData,key) in menuList">
             <menu-section :key="key"
+                          :menu-fold.sync="menuFold"
                           :menu-data="menuData"></menu-section>
         </template>
     </div>
@@ -20,7 +22,12 @@ export default {
     // filters: {},
     // model: {},
     // props: [],
-    // data() {},
+    data() {
+        return {
+            // 菜单折叠
+            menuFold: false
+        };
+    },
     computed: {
         menuList() {
             return {
@@ -73,6 +80,15 @@ export default {
 };
 </script>
 
-<!--<style lang="less"
+<style lang="less"
        scoped>
-</style>-->
+.left-menu {
+    width: 210px;
+    overflow: hidden;
+    transition: all 0.2s;
+
+    &.fold {
+        width: 50px;
+    }
+}
+</style>
