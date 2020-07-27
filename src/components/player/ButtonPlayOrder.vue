@@ -39,12 +39,12 @@ export default {
     },
     watch: {
         localModel(val) {
-            this.$store.set('playMode', val);
+            this.$electronStore.set('playMode', val);
         }
     },
     // mounted() {},
     created() {
-        this.localModel = this.$store.get('playMode') || playOrderKeys[0];
+        this.localModel = this.$electronStore.get('playMode') || playOrderKeys[0];
     },
     // activated() {},
     // beforeDestroy() {},
@@ -62,7 +62,7 @@ export default {
 
 <style lang="less"
        scoped>
-@import "../../assets/css/control-btn";
+@import "../../assets/css/buttons.less";
 
 .play-mode-wrapper {
 

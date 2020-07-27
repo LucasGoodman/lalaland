@@ -110,7 +110,7 @@ export default {
 
 <style lang="less"
        scoped>
-@import "../../assets/css/control-btn";
+@import "../../assets/css/buttons";
 
 .player-wrapper {
     display: flex;

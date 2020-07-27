@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import plugins from './plugins';
 import router from './router';
+import store from './store';
 import './assets/css/reset.css';
 import 'ant-design-vue/dist/antd.css';
 
@@ -13,9 +14,10 @@ Vue.use(plugins);
  *  Homepage：https://github.com/sindresorhus/electron-store
  * */
 const Store = require('electron-store');
-Vue.prototype.$store = new Store();
+Vue.prototype.$electronStore = new Store();
 
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount('#app');

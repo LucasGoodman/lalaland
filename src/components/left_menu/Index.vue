@@ -1,7 +1,10 @@
 <!--左侧菜单-->
 <template>
     <div class="left-menu">
-        <menu-section></menu-section>
+        <template v-for="(menuData,key) in menuList">
+            <menu-section :key="key"
+                          :menu-data="menuData"></menu-section>
+        </template>
     </div>
 </template>
 
@@ -12,13 +15,54 @@ export default {
     name: 'LeftMenu',
     components: {
         MenuSection
-    }
+    },
     // directives: {},
     // filters: {},
     // model: {},
     // props: [],
     // data() {},
-    // computed: {},
+    computed: {
+        menuList() {
+            return {
+                summary: {
+                    title: '',
+                    menus: [
+                        {
+                            name: '菜单列表',
+                            type: 'menu'
+                        }
+                    ]
+                },
+                online: {
+                    title: '在线音乐',
+                    menus: [
+                        {
+                            name: '搜索',
+                            type: 'search'
+                        }
+                    ]
+                },
+                mine: {
+                    title: '我的音乐',
+                    menus: [
+                        {
+                            name: '我喜欢',
+                            type: 'heart'
+                        }
+                    ]
+                },
+                other: {
+                    title: '其他',
+                    menus: [
+                        {
+                            name: '设置',
+                            type: 'setting'
+                        }
+                    ]
+                }
+            };
+        }
+    }
     // watch: {},
     // mounted() {},
     // created() {},

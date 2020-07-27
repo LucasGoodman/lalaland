@@ -5,6 +5,7 @@
         <div class="main-wrapper">
             <!--左侧菜单-->
             <div class="menu-wrapper">
+                <the-menu></the-menu>
             </div>
             <div class="content-wrapper">
                 <!--顶部导航-->
@@ -22,11 +23,13 @@
 </template>
 
 <script>
+import TheMenu from './left_menu/Index';
 import ThePlayer from './player/ThePlayer';
 
 export default {
     name: 'DefaultLayout',
     components: {
+        TheMenu,
         ThePlayer
     }
     // directives: {},
